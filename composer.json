@@ -1,8 +1,8 @@
 {
-    "name": "xing.chen/yii2-likage",
+    "name": "xing.chen/yii2-linkage",
     "description": "一个非常简单好用的YII2通用无限多级联动，带全国数据库和AR模型。可联动如城市，栏目等所有具有上下级关系的数据",
     "type": "yii2-extension",
-    "keywords": ["yii2","likage"],
+    "keywords": ["yii2","linkage"],
     "license": "MIT",
     "authors": [
         {
@@ -12,7 +12,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "xing\\yii2Likage\\": ""
+            "xing\\yii2Linkage\\": ""
         }
     }
 }
