@@ -1,6 +1,6 @@
 {
     "name": "xing.chen/yii2-linkage",
-    "description": "一个非常简单好用的YII2通用无限多级联动，带全国数据库和AR模型。可联动如城市，栏目等所有具有上下级关系的数据",
+    "description": "一个非常简单好用的YII2任意多级联动，带全国数据库和AR模型。可联动如城市，栏目等所有具有上下级关系的数据，兼容任意的数据表结构，只要做一些设置，马上就能支持你的表结构，完全结合ActiveForm进行增加修改",
     "type": "yii2-extension",
     "keywords": ["yii2","linkage"],
     "license": "MIT",
@@ -10,6 +10,10 @@
             "email": "877349686@qq.com"
         }
     ],
+    "require": {
+        "php": ">=7.0.0",
+        "xing.chen/helper": "dev-master"
+    },
     "autoload": {
         "psr-4": {
             "xing\\yii2Linkage\\": ""
