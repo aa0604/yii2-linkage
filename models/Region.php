@@ -46,4 +46,16 @@ class Region extends \xing\helper\yii\MyActiveRecord
             'sorting' => '排序',
         ];
     }
+
+    /**
+     * 读取两级城市
+     * @param int $reginId 城市id
+     * @return string 如广东深圳
+     */
+    public static function readTwoName(int $reginId)
+    {
+        $region = self::findOne($reginId);
+        $parentRegion = isset($region->parentId) ? self::findOne($region->parentId) : null;
+        return ($parentRegion->name ?? '') . ($region->name ?? '');
+    }
 }

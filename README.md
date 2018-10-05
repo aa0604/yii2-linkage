@@ -35,5 +35,6 @@ composer require xing.chen/yii2-linkage
                     ?>
 ```
 #### 多个字段联动和单个字段联动说明：
-如果是多个字段，比如使用provinceId和cityId分别保存两级城市联动的，只需要设置fieldLevelName的值就可以了。
+如果是多个字段，比如使用provinceId和cityId分别保存两级城市联动的，只需要设置fieldLevelName的值就可以了。需要注意的是，fieldLevelName 和 fieldsValue 的键值是对应的。
+
 如果是单个字段联动，不需要额外设置，正常使用$form->field($model, '字段名')->widget(...)即可

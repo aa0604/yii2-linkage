@@ -6,7 +6,7 @@ $('body').on('change', '.' + selectClassName, function () {
     // 最大级别判断
     if (linkageMaxLevel[className] > 0 && index + 1 >= linkageMaxLevel[className]) return;
     $('#input-' + selectClassName).val(obj.val());
-    getLinkage(obj, name(className, index, selectClassName));
+    getLinkage(obj, name(className, index + 1, selectClassName));
 });
 
 function getLinkage(obj,  name) {
@@ -28,5 +28,5 @@ function getLinkage(obj,  name) {
 }
 
 function name(className, index) {
-    return fieldLevelName[className] || 'linkageId-' + index;
+    return fieldLevelName[className][index] || 'linkageId-' + index;
 }

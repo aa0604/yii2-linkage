@@ -93,7 +93,6 @@ linkageMaxLevel[selectClassName] = $this->linkageLevel;
 
 </script>
 JAVASCRIPT;
-        $js .= '<input type="hidden" value="' . $this->model->formName() .  '[' . $this->attribute . ']" id="input-' .$this->selectClassName . '">';
 
         $html = '';
         if (!empty($this->fieldsValue)) {
@@ -103,6 +102,11 @@ JAVASCRIPT;
             }
         } else {
             $html = $this->dropDownList(0);
+        }
+
+        // 如果用户未定义模型原生表单名，则加入
+        if (!preg_match('/' .$this->model->formName() . '\[' . $this->attribute . '\]' . '/', $html)) {
+            $js .= '<input type="hidden" value="' . $this->model->formName() .  '[' . $this->attribute . ']" id="input-' .$this->selectClassName . '">';
         }
 
         return $html . $js;
@@ -119,7 +123,7 @@ JAVASCRIPT;
     {
         // 初始化各个选项
         $options = $this->options;
-        $options['name'] = $this->fieldLevel[$index] ?? 'linkageId-' . $index;
+        $options['name'] = $this->fieldLevelName[$index] ?? 'linkageId-' . $index;
 
         $options['class'] .= ' ' . $this->selectClassName;
         $options['data-class-name'] = $this->selectClassName;
