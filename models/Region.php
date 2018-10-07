@@ -63,10 +63,11 @@ class Region extends \xing\helper\yii\MyActiveRecord
      * 根据城市名读取城市信息
      * @param string $name 搜索关键字
      * @param bool $bool 是否左右自动加 % ，否则自己加
-     * @return array|null|\yii\db\ActiveRecord
+     * @return array|null|\yii\db\ActiveRecord|Region
      */
     public static function likeName($name, $bool = true)
     {
+        !$bool && $name .= '%';
         return self::find()->where(['like', 'name', $name, $bool])->one();
     }
 }
