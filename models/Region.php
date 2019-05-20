@@ -71,11 +71,11 @@ class Region extends \xing\helper\yii\MyActiveRecord
      * @param int $reginId 城市id
      * @return string 如广东深圳
      */
-    public static function readTwoName(int $reginId)
+    public static function readTwoName($reginId)
     {
         $region = self::findOne($reginId);
         $parentRegion = isset($region->parentId) ? self::findOne($region->parentId) : null;
-        return ($parentRegion->name ?? '') . ($region->name ?? '');
+        return ($parentRegion ? $parentRegion->name : '') . ($region ? $region->name : '');
     }
 
     /**
@@ -174,7 +174,7 @@ class Region extends \xing\helper\yii\MyActiveRecord
         do {
             $region = static::findOne($regionId);
         } while ($region->parentId > 0);
-        return $region->parentId ?? null;
+        return $region ? $region->parentId : null;
     }
 
     /**
